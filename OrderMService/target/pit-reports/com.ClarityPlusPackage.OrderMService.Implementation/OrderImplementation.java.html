@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>OrderImplementation.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.ClarityPlusPackage.OrderMService.Implementation;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ClarityPlusPackage.OrderMService.Entity.LoginDetails;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ClarityPlusPackage.OrderMService.Entity.Order;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ClarityPlusPackage.OrderMService.Repository.LoginRepo;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ClarityPlusPackage.OrderMService.Repository.OrderRepo;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.ClarityPlusPackage.OrderMService.Service.OrderService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.springframework.beans.factory.annotation.Autowired;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.springframework.stereotype.Service;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.text.DateFormat;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.text.ParseException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.text.SimpleDateFormat;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Date;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.logging.log4j.LogManager;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.logging.log4j.Logger;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@Service</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class OrderImplementation implements OrderService {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private static final Logger logger = LogManager.getLogger(OrderImplementation.class);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Autowired</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    OrderRepo orderRepo;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Autowired</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    LoginRepo loginRepo;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;String&#62; findOrderByOrderID(List&#60;String&#62; recipientDetailsList, String InstituteID) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //System.out.println(&#34;Inside Implementation&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;String&#62; orderExistOrNot = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_36'>1</a>
+<span>
+
+1. findOrderByOrderID : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if(recipientDetailsList.isEmpty())</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            logger.info(&#34;No pending orders&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            orderExistOrNot.add(&#34;There is no pending orders for InstituteID &#34;+InstituteID+&#34;. If there is any order yet to receive first fill the form for corresponding orderID.&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_40'>1</a>
+<span>
+
+1. findOrderByOrderID : replaced return value with Collections.emptyList for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::findOrderByOrderID &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return orderExistOrNot;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        logger.info(&#34;Checking orderIDs in recipient are there in order or not&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for(String orderID : recipientDetailsList)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            //take one orderID came from recipient and check it if it exists here or not</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_46'/>
+46
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_46'>1</a>
+<span>
+
+1. findOrderByOrderID : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if(this.orderRepo.findOrderByOrderID(orderID) == null)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                orderExistOrNot.add(&#34;The order ID &#34;+orderID+&#34; has not been received in campus yet.\n Please try again after order expected delivery date.&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            else</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                orderExistOrNot.add(orderID);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //System.out.println(&#34;Outside Implementation&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_52'/>
+52
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_52'>1</a>
+<span>
+
+1. findOrderByOrderID : replaced return value with Collections.emptyList for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::findOrderByOrderID &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return orderExistOrNot;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String saveOrder(Order[] orders)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for(Order order:orders)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.orderRepo.save(order);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        logger.info(&#34;Saved orders received in campus&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_61'/>
+61
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_61'>1</a>
+<span>
+
+1. saveOrder : replaced return value with &#34;&#34; for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::saveOrder &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return &#34;Orders saved successfully!&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;String&#62; findOrderByDate(String date) throws ParseException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        DateFormat dateFormat = new SimpleDateFormat(&#34;yyyy-MM-dd&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Date stringToDate = dateFormat.parse(date);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;String&#62; logs = this.orderRepo.findOrdersByDate(stringToDate);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        logger.info(&#34;Fetched logs by delivered date&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_70'>1</a>
+<span>
+
+1. findOrderByDate : replaced return value with Collections.emptyList for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::findOrderByDate &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return logs;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String loginGuard(String emailID, String password) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        String emailExistOrNot = this.orderRepo.findByEmailID(emailID);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //System.out.println(emailExistOrNot);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_77'/>
+77
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_77'>1</a>
+<span>
+
+1. loginGuard : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if(emailExistOrNot == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            logger.info(&#34;Email ID does not exist&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_79'/>
+79
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_79'>1</a>
+<span>
+
+1. loginGuard : replaced return value with &#34;&#34; for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::loginGuard &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return &#34;EmailID does not exist. \n Re-check the emailID or contact the admin.&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        String passwordWithEmailID = this.orderRepo.findPasswordByEmailID(emailExistOrNot);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_82'/>
+82
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_82'>1</a>
+<span>
+
+1. loginGuard : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if(!passwordWithEmailID.equals(password)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            logger.info(&#34;Invalid Login Credentials&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_84'/>
+84
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_84'>1</a>
+<span>
+
+1. loginGuard : replaced return value with &#34;&#34; for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::loginGuard &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return &#34;Invalid Login&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        logger.info(&#34;Valid Login&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_87'/>
+87
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_87'>1</a>
+<span>
+
+1. loginGuard : replaced return value with &#34;&#34; for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::loginGuard &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return &#34;Valid Login&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String dataPopulate() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        LoginDetails details1 = new LoginDetails(&#34;guard1@gmail.com&#34;,&#34;xyz123&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.loginRepo.save(details1);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        LoginDetails details2 = new LoginDetails(&#34;guard2@gmail.com&#34;,&#34;abc123&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.loginRepo.save(details2);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        logger.info(&#34;Guard Details Registered!&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_97'>1</a>
+<span>
+
+1. dataPopulate : replaced return value with &#34;&#34; for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::dataPopulate &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return &#34;Guard Details Registered!&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7a65c995_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a65c995_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findOrderByOrderID<br/><b>Killed by : </b>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByOrderID()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a65c995_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findOrderByOrderID<br/><b>Killed by : </b>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByOrderID()]</span></span> replaced return value with Collections.emptyList for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::findOrderByOrderID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a65c995_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findOrderByOrderID<br/><b>Killed by : </b>com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest]/[method:testFindOrderByOrderID()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a65c995_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_52'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findOrderByOrderID<br/><b>Killed by : </b>com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest]/[method:testFindOrderByOrderID()]</span></span> replaced return value with Collections.emptyList for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::findOrderByOrderID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a65c995_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_61'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>saveOrder<br/><b>Killed by : </b>com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest]/[method:testSaveOrder()]</span></span> replaced return value with &#34;&#34; for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::saveOrder &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a65c995_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findOrderByDate<br/><b>Killed by : </b>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByDate()]</span></span> replaced return value with Collections.emptyList for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::findOrderByDate &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a65c995_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loginGuard<br/><b>Killed by : </b>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testLoginGuard5()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a65c995_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_79'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loginGuard<br/><b>Killed by : </b>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testLoginGuard5()]</span></span> replaced return value with &#34;&#34; for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::loginGuard &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a65c995_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loginGuard<br/><b>Killed by : </b>com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest]/[method:testLoginGuard()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a65c995_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_84'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loginGuard<br/><b>Killed by : </b>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testLoginGuard()]</span></span> replaced return value with &#34;&#34; for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::loginGuard &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a65c995_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loginGuard<br/><b>Killed by : </b>com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest]/[method:testLoginGuard()]</span></span> replaced return value with &#34;&#34; for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::loginGuard &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7a65c995_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7a65c995_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>dataPopulate<br/><b>Killed by : </b>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testDataPopulate2()]</span></span> replaced return value with &#34;&#34; for com/ClarityPlusPackage/OrderMService/Implementation/OrderImplementation::dataPopulate &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testLoginGuard()] (6 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testLoginGuard5()] (4 ms)</li><li>com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest]/[method:testLoginGuard()] (2 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testLoginGuard4()] (5 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testLoginGuard3()] (5 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testLoginGuard8()] (5 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testLoginGuard7()] (6 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testLoginGuard2()] (7 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByOrderID()] (5 ms)</li><li>com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest]/[method:testFindOrderByOrderID()] (1 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByOrderID5()] (4 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByOrderID6()] (4 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByOrderID3()] (5 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByOrderID4()] (4 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByOrderID10()] (5 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByOrderID2()] (5 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByOrderID7()] (7 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByOrderID9()] (8 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testDataPopulate2()] (6 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testDataPopulate()] (7 ms)</li><li>com.ClarityPlusPackage.OrderMService.OrderMServiceApplicationTests.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.OrderMServiceApplicationTests]/[method:contextLoads()] (5 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByDate()] (20 ms)</li><li>com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest]/[method:testFindOrderByDate()] (3 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByDate2()] (4 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testFindOrderByDate3()] (5 ms)</li><li>com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.ServiceTest.OrderImplTest]/[method:testSaveOrder()] (1 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testSaveOrder2()] (4 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testSaveOrder5()] (6 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testSaveOrder4()] (7 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testSaveOrder3()] (6 ms)</li><li>com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest.[engine:junit-jupiter]/[class:com.ClarityPlusPackage.OrderMService.Implementation.OrderImplementationDiffblueTest]/[method:testSaveOrder()] (6 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.2
+
+</body>
+</html>
