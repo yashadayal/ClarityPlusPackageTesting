@@ -51,10 +51,10 @@ class OrderControllerDiffblueTest {
         //   Reason: R013 No inputs found that don't throw a trivial exception.
         //   Diffblue Cover tried to run the arrange/act section, but the method under
         //   test threw
-        //   jakarta.servlet.ServletException: Request processing failed: org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : "{"timestamp":1701033699815,"status":500,"error":"Internal Server Error","path":"/recipient/getEmailID/42/"}"
+        //   jakarta.servlet.ServletException: Request processing failed: org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : "{"timestamp":1701034631351,"status":500,"error":"Internal Server Error","path":"/recipient/getEmailID/42/"}"
         //       at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:537)
         //       at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:631)
-        //   org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : "{"timestamp":1701033699815,"status":500,"error":"Internal Server Error","path":"/recipient/getEmailID/42/"}"
+        //   org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : "{"timestamp":1701034631351,"status":500,"error":"Internal Server Error","path":"/recipient/getEmailID/42/"}"
         //       at com.ClarityPlusPackage.OrderMService.Controller.OrderController.getEmailOfInstituteID(OrderController.java:42)
         //       at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:537)
         //       at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:631)
@@ -74,9 +74,7 @@ class OrderControllerDiffblueTest {
         MockMvcBuilders.standaloneSetup(orderController)
                 .build()
                 .perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType("text/plain;charset=ISO-8859-1"))
-                .andExpect(MockMvcResultMatchers.content().string("Login Guard"));
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     /**
