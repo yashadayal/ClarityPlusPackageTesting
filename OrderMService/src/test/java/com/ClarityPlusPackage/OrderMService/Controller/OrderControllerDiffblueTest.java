@@ -51,11 +51,11 @@ class OrderControllerDiffblueTest {
         //   Reason: R013 No inputs found that don't throw a trivial exception.
         //   Diffblue Cover tried to run the arrange/act section, but the method under
         //   test threw
-        //   jakarta.servlet.ServletException: Request processing failed: org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : "{"timestamp":1701023284581,"status":500,"error":"Internal Server Error","path":"/recipient/getEmailID/42/"}"
+        //   jakarta.servlet.ServletException: Request processing failed: org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : "{"timestamp":1701033699815,"status":500,"error":"Internal Server Error","path":"/recipient/getEmailID/42/"}"
         //       at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:537)
         //       at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:631)
-        //   org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : "{"timestamp":1701023284581,"status":500,"error":"Internal Server Error","path":"/recipient/getEmailID/42/"}"
-        //       at com.ClarityPlusPackage.OrderMService.Controller.OrderController.getEmailOfInstituteID(OrderController.java:40)
+        //   org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : "{"timestamp":1701033699815,"status":500,"error":"Internal Server Error","path":"/recipient/getEmailID/42/"}"
+        //       at com.ClarityPlusPackage.OrderMService.Controller.OrderController.getEmailOfInstituteID(OrderController.java:42)
         //       at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:537)
         //       at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:631)
         //   See https://diff.blue/R013 to resolve this issue.
@@ -111,22 +111,6 @@ class OrderControllerDiffblueTest {
     }
 
     /**
-     * Method under test: {@link OrderController#getLogsByInstituteID(String)}
-     */
-    @Test
-    void testGetLogsByInstituteID2() throws Exception {
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/order/search/logsbyID/{InstituteID}/",
-                "Institute ID");
-        requestBuilder.contentType("https://example.org/example");
-        MockMvcBuilders.standaloneSetup(orderController)
-                .build()
-                .perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType("application/json"))
-                .andExpect(MockMvcResultMatchers.content().string("[]"));
-    }
-
-    /**
      * Method under test:  {@link OrderController#getOrderByInstituteID(String)}
      */
     @Test
@@ -169,102 +153,6 @@ class OrderControllerDiffblueTest {
      */
     @Test
     void testSaveOrder2() throws Exception {
-        java.sql.Date DateOfDelivery = mock(java.sql.Date.class);
-        when(DateOfDelivery.getTime()).thenReturn(10L);
-
-        Order order = new Order();
-        order.setDateOfDelivery(DateOfDelivery);
-        order.setFirstName("Jane");
-        order.setLastName("Doe");
-        order.setOrderID("Order ID");
-        order.setRetailer("Retailer");
-        String content = (new ObjectMapper()).writeValueAsString(new Order[]{order});
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/order/saveorderdata", "Uri Variables")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(content);
-        ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(orderController)
-                .build()
-                .perform(requestBuilder);
-        actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
-    }
-
-    /**
-     * Method under test: {@link OrderController#saveOrder(Order[])}
-     */
-    @Test
-    void testSaveOrder3() throws Exception {
-        java.sql.Date DateOfDelivery = mock(java.sql.Date.class);
-        when(DateOfDelivery.getTime()).thenReturn(10L);
-
-        Order order = new Order();
-        order.setDateOfDelivery(DateOfDelivery);
-        order.setFirstName("Jane");
-        order.setLastName("Doe");
-        order.setOrderID("Order ID");
-        order.setRetailer("Retailer");
-        String content = (new ObjectMapper()).writeValueAsString(new Order[]{order});
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/order/saveorderdata", "Uri Variables")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(content);
-        ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(orderController)
-                .build()
-                .perform(requestBuilder);
-        actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
-    }
-
-    /**
-     * Method under test: {@link OrderController#saveOrder(Order[])}
-     */
-    @Test
-    void testSaveOrder4() throws Exception {
-        java.sql.Date DateOfDelivery = mock(java.sql.Date.class);
-        when(DateOfDelivery.getTime()).thenReturn(10L);
-
-        Order order = new Order();
-        order.setDateOfDelivery(DateOfDelivery);
-        order.setFirstName("Jane");
-        order.setLastName("Doe");
-        order.setOrderID("Order ID");
-        order.setRetailer("Retailer");
-        String content = (new ObjectMapper()).writeValueAsString(new Order[]{order});
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/order/saveorderdata", "Uri Variables")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(content);
-        ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(orderController)
-                .build()
-                .perform(requestBuilder);
-        actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
-    }
-
-    /**
-     * Method under test: {@link OrderController#saveOrder(Order[])}
-     */
-    @Test
-    void testSaveOrder5() throws Exception {
-        java.sql.Date DateOfDelivery = mock(java.sql.Date.class);
-        when(DateOfDelivery.getTime()).thenReturn(10L);
-
-        Order order = new Order();
-        order.setDateOfDelivery(DateOfDelivery);
-        order.setFirstName("Jane");
-        order.setLastName("Doe");
-        order.setOrderID("Order ID");
-        order.setRetailer("Retailer");
-        String content = (new ObjectMapper()).writeValueAsString(new Order[]{order});
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/order/saveorderdata", "Uri Variables")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(content);
-        ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(orderController)
-                .build()
-                .perform(requestBuilder);
-        actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
-    }
-
-    /**
-     * Method under test: {@link OrderController#saveOrder(Order[])}
-     */
-    @Test
-    void testSaveOrder6() throws Exception {
         java.sql.Date DateOfDelivery = mock(java.sql.Date.class);
         when(DateOfDelivery.getTime()).thenReturn(10L);
 
