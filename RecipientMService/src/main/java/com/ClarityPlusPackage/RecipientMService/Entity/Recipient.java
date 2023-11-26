@@ -46,6 +46,6 @@ public class Recipient {
         if (Received == null) {
             Received = false;
         }
-        System.out.println("Setting default values...");
+        //System.out.println("Setting default values...");
     }
 }

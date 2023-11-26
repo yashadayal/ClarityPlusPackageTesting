@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import java.text.ParseException;
+import java.util.Collections;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,7 +32,8 @@ public class OrderController {
         List<String> orderList = this.orderService.findOrderByOrderID(recipientDetailsList, InstituteID);
         logger.info("Getting OrderIDs that are in campus for given instituteID.");
         //System.out.println("Outside Controller");
-        return orderList;
+        return Collections.emptyList();
+        //return null;
     }
 
     @GetMapping("/emailOfInstituteID/{InstituteID}/")
@@ -65,7 +67,8 @@ public class OrderController {
     public ResponseEntity<String> saveOrder(@RequestBody Order[] orders) {
         String success=this.orderService.saveOrder(orders);
         logger.info("Saving Orders received in campus");
-        return ResponseEntity.ok(success);
+        //return ResponseEntity.ok(success);
+        return null;
     }
 
     @PostMapping("/verifyOtp/{InstituteID}/{otp}")
@@ -82,6 +85,7 @@ public class OrderController {
         //sending email and password as pathvariables as @RequestBody is receiving NULL
         String response = this.orderService.loginGuard(emailID,password);
         logger.info("Login Guard checking");
-        return ResponseEntity.ok(response);
+        return null;
+        //return ResponseEntity.ok(response);
     }
 }

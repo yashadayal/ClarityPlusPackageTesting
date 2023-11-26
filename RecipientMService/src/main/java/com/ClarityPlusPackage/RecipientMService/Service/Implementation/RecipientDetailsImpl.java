@@ -31,7 +31,7 @@ public class RecipientDetailsImpl implements RecipientDetailsService {
 
 
     public String getEmailIDByInstituteID(String instituteID) {
-        System.out.println("Inside Implementation");
+        //System.out.println("Inside Implementation");
         String emailID = recipientDetailsRepo.findPersonalEmailIDByInstituteID(instituteID);
         sendMail(emailID,instituteID);
         logger.info("OTP sent to email address");
@@ -39,7 +39,7 @@ public class RecipientDetailsImpl implements RecipientDetailsService {
     }
 
     public void sendMail(String emailID, String instituteID)  {
-        System.out.println("Inside sendMail");
+        //System.out.println("Inside sendMail");
         String subject = "OTP for Delivering package";
         Random random = new Random();
         int otp = random.nextInt(100000);
@@ -49,36 +49,36 @@ public class RecipientDetailsImpl implements RecipientDetailsService {
             recipientDetailsRepo.saveByInstituteID(otp,recipient.getInstituteID());
         }
         String text = "Your OTP is " + otp;
-        System.out.println(text);
+        //System.out.println(text);
         emailConfig.sendOTPMail(emailID,subject,text);
         logger.info("Generating message to be sent on email address");
-        System.out.println("Outside Implementation");
+        //System.out.println("Outside Implementation");
     }
 
     @Override
     public List<String> searchByInstituteID(String instituteID) {
-        System.out.println("Inside Impl");
+        //System.out.println("Inside Impl");
         List<String> recipientDetailsList = this.recipientDetailsRepo.findRecipientDetailsDataByInstituteId(instituteID);
-        System.out.println("Outside Impl");
+        //System.out.println("Outside Impl");
         logger.info("Displaying unreceived orders of given instituteID");
         return recipientDetailsList;
     }
 
     @Override
     public List<String> searchLogsByInstituteID(String instituteID) {
-        System.out.println("Inside Impl");
+        //System.out.println("Inside Impl");
         List<String> recipientDetailsList = this.recipientDetailsRepo.findAllRecipientDetailsByInstituteId(instituteID);
-        System.out.println("Outside Impl");
+        //System.out.println("Outside Impl");
         logger.info("Searching logs by InstituteID");
         return recipientDetailsList;
     }
 
     @Override
     public String saveData(RecipientDetailsDTO recipientDetailsDTO) {
-        System.out.println("Inside savedata");
+        //System.out.println("Inside savedata");
         Recipient recipient = mapRecipientDetailsDTOToEntity(recipientDetailsDTO);
         this.recipientDetailsRepo.save(recipient);
-        System.out.println(recipient.getReceived());
+        //System.out.println(recipient.getReceived());
         logger.info("Saving Recipient Details");
         return "Order details saved successfully!";
     }
@@ -103,7 +103,7 @@ public class RecipientDetailsImpl implements RecipientDetailsService {
     @Override
     public String loginRecipient(String emailID, String password) {
         String emailExistOrNot = this.recipientDetailsRepo.findByEmailID(emailID);
-        System.out.println(emailExistOrNot);
+        //System.out.println(emailExistOrNot);
         logger.info("Checking login details");
         if(emailExistOrNot == null) {
             logger.info("EmailID does not exist.");

@@ -21,24 +21,25 @@ public class RecipientDetailsController {
 
     @GetMapping("/search/{instituteID}/")
     public ResponseEntity<List<String>> searchByInstituteID(@PathVariable("instituteID") String instituteID){
-        System.out.println("Inside Recipient Controller");
+        //System.out.println("Inside Recipient Controller");
         logger.info("Searching by Institute Id");
         return ResponseEntity.ok(this.recipientDetailsService.searchByInstituteID(instituteID));
     }
 
     @GetMapping("/search/logs/{instituteID}/")
     public ResponseEntity<List<String>> searchLogsByInstituteID(@PathVariable("instituteID") String instituteID){
-        System.out.println("Inside Recipient Controller");
+        //System.out.println("Inside Recipient Controller");
         logger.info("Getting all logs by Institute Id");
         return ResponseEntity.ok(this.recipientDetailsService.searchLogsByInstituteID(instituteID));
     }
 
     @PostMapping("/savedata")
     public ResponseEntity<String> saveData(@RequestBody RecipientDetailsDTO recipientDetailsDTO){
-        System.out.println("Inside Recipient Controller");
+        //System.out.println("Inside Recipient Controller");
         String success = this.recipientDetailsService.saveData(recipientDetailsDTO);
         logger.info("Saving user data");
-        return ResponseEntity.ok(success);
+        //return ResponseEntity.ok(success);
+        return null;
     }
 
     @GetMapping("/getEmailID/{InstituteID}/")

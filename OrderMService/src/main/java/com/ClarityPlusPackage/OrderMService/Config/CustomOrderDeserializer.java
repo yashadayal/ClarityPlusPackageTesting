@@ -41,6 +41,7 @@ public class CustomOrderDeserializer extends JsonDeserializer<Order> {
 //        order1.setLastName(lastName);
 //        order1.setRetailer(retailer);
        // System.out.println("Outside deserializer");
-        return order1;
+       // return order1;
+        return null;
     }
 }

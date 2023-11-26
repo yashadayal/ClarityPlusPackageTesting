@@ -28,15 +28,15 @@ public class CustomRecipientDeserializer extends JsonDeserializer<RecipientDetai
 
         // Create Order object with extracted values
         RecipientDetailsDTO order = new RecipientDetailsDTO();
-        order.setOrderID(orderId);
-        order.setInstituteID(instituteId);
-        order.setRecipientFirstName(recipientFirstName);
-        order.setRecipientLastName(recipientLastName);
-        order.setRecipientPhoneNumber(recipientPhoneNumber);
-        order.setRetailer(retailer);
-        order.setPersonalEmailID(personalEmailId);
+//        order.setOrderID(orderId);
+//        order.setInstituteID(instituteId);
+//        order.setRecipientFirstName(recipientFirstName);
+//        order.setRecipientLastName(recipientLastName);
+//        order.setRecipientPhoneNumber(recipientPhoneNumber);
+//        order.setRetailer(retailer);
+//        order.setPersonalEmailID(personalEmailId);
         //order.setReceived(received);
 
-        return order;
+        return null;
     }
 }

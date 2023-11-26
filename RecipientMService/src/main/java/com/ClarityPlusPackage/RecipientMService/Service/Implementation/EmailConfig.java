@@ -18,8 +18,8 @@ public class EmailConfig {
         message.setTo(to);
         message.setSubject(subject);
         message.setText(body);
-        System.out.println(message);
+        //System.out.println(message);
         javaMailSender.send(message);
-        System.out.println("Mail sent!");
+        //System.out.println("Mail sent!");
     }
 }

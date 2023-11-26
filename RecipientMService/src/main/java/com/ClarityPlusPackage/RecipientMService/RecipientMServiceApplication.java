@@ -29,8 +29,8 @@ public class RecipientMServiceApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws InterruptedException {
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		String response = this.recipientDetailsService.dataPopulate();
-		System.out.println(response);
+		//System.out.println(response);
 	}
 }

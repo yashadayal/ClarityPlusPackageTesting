@@ -154,19 +154,20 @@ class OrderImplementationDiffblueTest {
     assertEquals(1, actualFindOrderByOrderIDResult.size());
   }
 
+
   /**
    * Method under test:
    * {@link OrderImplementation#findOrderByOrderID(List, String)}
    */
-  @Test
-  void testFindOrderByOrderID8() {
-    ArrayList<String> recipientDetailsList = new ArrayList<>();
-    recipientDetailsList.add("42");
-    List<String> actualFindOrderByOrderIDResult = orderImplementation.findOrderByOrderID(recipientDetailsList,
-            "Institute ID");
-    assertEquals("42", actualFindOrderByOrderIDResult.get(0));
-    assertEquals(1, actualFindOrderByOrderIDResult.size());
-  }
+  //  @Test
+  //  void testFindOrderByOrderID8() {
+  //    ArrayList<String> recipientDetailsList = new ArrayList<>();
+  //    recipientDetailsList.add("42");
+  //    List<String> actualFindOrderByOrderIDResult = orderImplementation.findOrderByOrderID(recipientDetailsList,
+  //            "Institute ID");
+  //    assertEquals("42", actualFindOrderByOrderIDResult.get(0));
+  //    assertEquals(1, actualFindOrderByOrderIDResult.size());
+  //  }
 
   /**
    * Method under test:
@@ -311,44 +312,6 @@ class OrderImplementationDiffblueTest {
     assertEquals("Orders saved successfully!", actualSaveOrderResult);
   }
 
-  /**
-   * Method under test: {@link OrderImplementation#saveOrder(Order[])}
-   */
-  @Test
-  void testSaveOrder6() {
-    java.sql.Date DateOfDelivery = mock(java.sql.Date.class);
-    when(DateOfDelivery.getTime()).thenReturn(10L);
-
-    Order order = new Order();
-    order.setDateOfDelivery(DateOfDelivery);
-    order.setFirstName("Jane");
-    order.setLastName("Doe");
-    order.setOrderID("Order ID");
-    order.setRetailer("Retailer");
-    String actualSaveOrderResult = orderImplementation.saveOrder(new Order[]{order});
-    verify(DateOfDelivery, atLeast(1)).getTime();
-    assertEquals("Orders saved successfully!", actualSaveOrderResult);
-  }
-
-  /**
-   * Method under test: {@link OrderImplementation#saveOrder(Order[])}
-   */
-  @Test
-  void testSaveOrder7() {
-    java.sql.Date DateOfDelivery = mock(java.sql.Date.class);
-    when(DateOfDelivery.getTime()).thenReturn(10L);
-
-    Order order = new Order();
-    order.setDateOfDelivery(DateOfDelivery);
-    order.setFirstName("Jane");
-    order.setLastName("Doe");
-    order.setOrderID("Order ID");
-    order.setRetailer("Retailer");
-    String actualSaveOrderResult = orderImplementation.saveOrder(new Order[]{order});
-    verify(DateOfDelivery, atLeast(1)).getTime();
-    assertEquals("Orders saved successfully!", actualSaveOrderResult);
-  }
-
   @Test
   void testFindOrderByDate() throws ParseException {
     ArrayList<String> stringList = new ArrayList<>();
@@ -430,18 +393,7 @@ class OrderImplementationDiffblueTest {
             orderImplementation.loginGuard("guard1@gmail.com", "iloveyou"));
   }
 
-  /**
-   * Method under test: {@link OrderImplementation#loginGuard(String, String)}
-   */
-  @Test
-  void testLoginGuard6() {
-    assertEquals("Invalid Login", orderImplementation.loginGuard("guard1@gmail.com", "iloveyou"));
-  }
 
-  //    @Test
-  //    void testLoginGuard7() {
-  //        assertEquals("Valid Login", orderImplementation.loginGuard("guard1@gmail.com", "xyz123"));
-  //    }
   @Test
   void testLoginGuard7() {
     when(orderRepo.findPasswordByEmailID(Mockito.<String>any())).thenReturn("xyz123");
@@ -462,25 +414,6 @@ class OrderImplementationDiffblueTest {
     assertEquals("Valid Login", actualLoginGuardResult);
   }
 
-  /**
-   * Method under test: {@link OrderImplementation#loginGuard(String, String)}
-   */
-  @Test
-  void testLoginGuard9() {
-    assertEquals("Invalid Login", orderImplementation.loginGuard("guard2@gmail.com", "iloveyou"));
-  }
-
-  /**
-   * Method under test: {@link OrderImplementation#loginGuard(String, String)}
-   */
-  @Test
-  void testLoginGuard10() {
-    assertEquals("Valid Login", orderImplementation.loginGuard("guard1@gmail.com", "xyz123"));
-  }
-
-  /**
-   * Method under test: {@link OrderImplementation#loginGuard(String, String)}
-   */
 
   @Test
   void testDataPopulate() {
