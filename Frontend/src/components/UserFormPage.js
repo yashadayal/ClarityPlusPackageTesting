@@ -1,22 +1,13 @@
 import React, { useState } from "react";
-import {
-  Button,
-  TextField,
-  Box,
-  Grid,
-  Paper,
-  Typography,
-  AppBar,
-  Toolbar,
-  FormControl,
-} from "@mui/material";
+// import { Button,TextField,Box,Grid,Typography,AppBar,Toolbar,FormControl } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import imgPath from "./Images/service-fast-delivery-parcels-vector-illustration-express-delivery-courier-service-smiling-man-courier-orange-uniform-with-box-his-hands-flat-style-eps-10_669518-23.avif";
 import imgPath1 from "./Images/unnamed.jpg"
 import Select from "@mui/material/Select";
-import axios from "axios";
-import { Alert, Collapse } from "@mui/material";
+import axios from 'axios';
+import Alert from "@mui/material";
+import Collapse from "@mui/material";
 
 const UserFormPage = () => {
   const [firstName, setFirstName] = useState("");

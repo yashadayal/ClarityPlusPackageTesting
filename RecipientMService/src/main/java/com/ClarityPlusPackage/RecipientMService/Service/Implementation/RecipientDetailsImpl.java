@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -70,7 +72,8 @@ public class RecipientDetailsImpl implements RecipientDetailsService {
         List<String> recipientDetailsList = this.recipientDetailsRepo.findAllRecipientDetailsByInstituteId(instituteID);
         //System.out.println("Outside Impl");
         logger.info("Searching logs by InstituteID");
-        return recipientDetailsList;
+        //return recipientDetailsList;
+        return Collections.emptyList();
     }
 
     @Override
@@ -112,10 +115,10 @@ public class RecipientDetailsImpl implements RecipientDetailsService {
         String passwordWithEmailID = this.recipientDetailsRepo.findPasswordByEmailID(emailExistOrNot);
         if(!passwordWithEmailID.equals(password)) {
             logger.info("Invalid Login Credentials");
-            return "Invalid Login";
+            return "";
         }
         logger.info("Valid Login");
-        return "Valid Login";
+        return "";
     }
 
     @Override
@@ -133,14 +136,15 @@ public class RecipientDetailsImpl implements RecipientDetailsService {
 
     private Recipient mapRecipientDetailsDTOToEntity(RecipientDetailsDTO recipientDetailsDTO) {
         Recipient recipient = new Recipient();
-        recipient.setOrderID(recipientDetailsDTO.getOrderID());
-        recipient.setInstituteID(recipientDetailsDTO.getInstituteID());
-        recipient.setRecipientFirstName(recipientDetailsDTO.getRecipientFirstName());
-        recipient.setRecipientLastName(recipientDetailsDTO.getRecipientLastName());
-        recipient.setRecipientPhoneNumber(recipientDetailsDTO.getRecipientPhoneNumber());
-        recipient.setRetailer(recipientDetailsDTO.getRetailer());
-        recipient.setPersonalEmailID(recipientDetailsDTO.getPersonalEmailID());
-        recipient.setReceived(false);
-        return recipient;
+//        recipient.setOrderID(recipientDetailsDTO.getOrderID());
+//        recipient.setInstituteID(recipientDetailsDTO.getInstituteID());
+//        recipient.setRecipientFirstName(recipientDetailsDTO.getRecipientFirstName());
+//        recipient.setRecipientLastName(recipientDetailsDTO.getRecipientLastName());
+//        recipient.setRecipientPhoneNumber(recipientDetailsDTO.getRecipientPhoneNumber());
+//        recipient.setRetailer(recipientDetailsDTO.getRetailer());
+//        recipient.setPersonalEmailID(recipientDetailsDTO.getPersonalEmailID());
+//        recipient.setReceived(false);
+//        return recipient;
+        return null;
     }
 }
