@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GuardLandingPage> should render component 1`] = `
+<img
+  src="college.jpeg"
+  style={
+    Object {
+      "display": "block",
+      "margin": "auto",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "width": "100%",
+    }
+  }
+/>
+`;
