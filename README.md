@@ -38,3 +38,7 @@ Mutation testing has been performed to evaluate the test suite effectiveness.
 - Yasha: Order Microservice Testing
 - Anisha: Recipient Microservice Testing
 - Yasha and Anisha: Frontend Testing
+
+## Team Members
+- [Yasha Dayal](https://github.com/yashadayal)
+- [Anisha Rani](https://github.com/anisha-sudo)
